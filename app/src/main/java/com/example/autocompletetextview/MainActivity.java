@@ -15,9 +15,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         e1=findViewById(R.id.autoCompleteTextView);
-        String [] values={"c","cpp","java","python","jsp","parl"};
+        String[] values={"c","cpp","java","python","jsp","parl"};
         ArrayAdapter<String> ad;
-        ad=new ArrayAdapter<>(this,R.layout.support_simple_spinner_dropdown_item);
+        ad=new ArrayAdapter<>(this,R.layout.support_simple_spinner_dropdown_item,values);
         e1.setAdapter(ad);
         e1.setThreshold(1);
     }
