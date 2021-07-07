@@ -6,9 +6,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, CompoundButton.OnCheckedChangeListener {
     Button b1;
     CheckBox c1,c2,c3;
 
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         c2=findViewById(R.id.cb2);
         c3=findViewById(R.id.cb3);
         b1.setOnClickListener(this);
+        c1.setOnCheckedChangeListener(this);
 
     }
 
@@ -38,5 +40,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             s1+=",java";
         }
         Toast.makeText(this, ""+s1, Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+      if(isChecked) {
+          Toast.makeText(this, "c is selected", Toast.LENGTH_SHORT).show();
+      }else{
+          Toast.makeText(this, "c is deselected", Toast.LENGTH_SHORT).show();
+      }
     }
 }
